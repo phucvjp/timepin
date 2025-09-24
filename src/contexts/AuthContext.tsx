@@ -55,7 +55,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     currentUser,
     loading,
     logout,
-    loginWithGoogle,
+    loginWithGoogle: async () => {
+      await loginWithGoogle();
+    },
   };
 
   return (
