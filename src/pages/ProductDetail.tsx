@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { auth } from "../firebase/config";
+import { useAuth } from "../contexts/AuthContext";
+import AuthModal from "../components/AuthModal";
 
 interface Product {
   _id: string;
@@ -31,6 +33,19 @@ const ProductDetail: React.FC = () => {
   });
   const [orderSuccess, setOrderSuccess] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
+  const { currentUser } = useAuth();
+
+  useEffect(() => {
+    if (currentUser) {
+      setCheckoutForm((prev) => ({
+        ...prev,
+        customerName: currentUser.displayName || "",
+        email: currentUser.email || "",
+      }));
+    }
+  }, [currentUser]);
 
   useEffect(() => {
     if (id) {
@@ -103,8 +118,8 @@ const ProductDetail: React.FC = () => {
               onClick={() => {
                 setOrderSuccess(false);
                 setCheckoutForm({
-                  customerName: "",
-                  email: auth.currentUser?.email || "",
+                  customerName: currentUser?.displayName || "",
+                  email: currentUser?.email || "",
                   phone: "",
                 });
               }}
@@ -142,7 +157,13 @@ const ProductDetail: React.FC = () => {
 
             <button
               className="btn btn-primary btn-large"
-              onClick={() => setShowCheckout(true)}
+              onClick={() => {
+                if (currentUser) {
+                  setShowCheckout(true);
+                } else {
+                  setShowAuthModal(true);
+                }
+              }}
             >
               Buy Now - {product.price}đ
             </button>
@@ -219,6 +240,11 @@ const ProductDetail: React.FC = () => {
             </div>
           </div>
         )}
+
+        <AuthModal
+          isOpen={showAuthModal}
+          onClose={() => setShowAuthModal(false)}
+        />
       </div>
     </div>
   );
