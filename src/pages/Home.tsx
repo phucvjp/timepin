@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Home: React.FC = () => {
   return (
     <div className="home">
-      <div className="hero-section">
+      <div id="hero-section" className="hero-section">
         <h1 className="hero-title">TimePin</h1>
         <p className="hero-subtitle">
           A modern badge connecting history and youth through QR stories
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <div className="features-section">
+      <div id="features-section" className="features-section">
         <div className="container">
           <h2>Why Choose TimePin?</h2>
           <div className="features-grid">
@@ -54,4 +54,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-

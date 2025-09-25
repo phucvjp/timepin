@@ -24,7 +24,7 @@ body {
 
 /* Container */
 .container {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -39,7 +39,7 @@ body {
 }
 
 .nav-container {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
@@ -257,6 +257,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .btn-google:hover {
@@ -313,7 +315,7 @@ body {
 
 .hero-description {
   font-size: 1.1rem;
-  max-width: 600px;
+  /* max-width: 600px; */
   margin-bottom: 40px;
   opacity: 0.9;
 }
@@ -579,6 +581,12 @@ body {
 
 .google-auth-section {
   margin: 40px 0;
+  width: 100%;
+}
+
+.google-auth-section .btn-google {
+  width: 100%;
+  max-width: none;
 }
 
 .auth-info {
