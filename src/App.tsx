@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import ProductList from "./pages/ProductList";
 import ProductDetail from "./pages/ProductDetail";
 import CachMangThangTam from "./pages/CachMangThangTam";
+import NotFound from "./pages/NotFound";
 import "./App.css";
 import FloatingNavigation from "./components/FloatingNavigation";
 
@@ -43,6 +44,17 @@ function App() {
                 path="/cach-mang-thang-tam"
                 element={<CachMangThangTam />}
               />
+            </Route>
+            {/* Catch-all route for 404 */}
+            <Route
+              element={
+                <>
+                  <Navigation />
+                  <Outlet />
+                </>
+              }
+            >
+              <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
 
