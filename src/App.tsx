@@ -10,6 +10,8 @@ import Home from "./pages/Home";
 import ProductList from "./pages/ProductList";
 import ProductDetail from "./pages/ProductDetail";
 import CachMangThangTam from "./pages/CachMangThangTam";
+import TuyenNgonDocLap from "./pages/TuyenNgonDocLap";
+import ChienDichDienBienPhu from "./pages/ChienDichDienBienPhu";
 import NotFound from "./pages/NotFound";
 import "./App.css";
 import FloatingNavigation from "./components/FloatingNavigation";
@@ -44,7 +46,15 @@ function App() {
                 path="/cach-mang-thang-tam"
                 element={<CachMangThangTam />}
               />
+              <Route
+                path="/tuyen-ngon-doc-lap"
+                element={<TuyenNgonDocLap />}
+              />
             </Route>
+            <Route
+              path="/chien-dich-dien-bien-phu"
+              element={<ChienDichDienBienPhu />}
+            />
             {/* Catch-all route for 404 */}
             <Route
               element={
