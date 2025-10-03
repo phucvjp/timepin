@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Trophy, Flag, Users, Mountain, Calendar, Target, Award, Star } from 'lucide-react';
+import { Trophy, Flag, Users, Mountain, Calendar, Target, Award } from 'lucide-react';
 
 const DBPStats: React.FC = () => {
   const [activeTab, setActiveTab] = useState('military');

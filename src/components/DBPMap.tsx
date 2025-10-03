@@ -82,10 +82,6 @@ const DBPMap: React.FC = () => {
     }
   ];
 
-  const getPhaseColor = (phase: number) => {
-    const colors = ['blue', 'red', 'orange', 'yellow'];
-    return colors[phase] || 'gray';
-  };
 
   const getStatusColor = (base: any) => {
     if (base.phase <= currentPhase) {
