@@ -25,7 +25,7 @@ const DBPStats: React.FC = () => {
       value: '56',
       unit: 'ngày đêm',
       color: 'from-blue-500 to-blue-700',
-      description: 'Từ 13/3 đến 7/5/1954'
+      description: '13/3 – 7/5/1954 (1 tháng, 3 tuần và 3 ngày)'
     },
     {
       icon: Users,

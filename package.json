@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
     "axios": "^1.12.2",
+    "fiber": "^1.0.4",
     "firebase": "^12.3.0",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.544.0",

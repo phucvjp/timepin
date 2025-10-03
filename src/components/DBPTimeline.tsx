@@ -26,15 +26,15 @@ const DBPTimeline: React.FC = () => {
       id: 1,
       title: 'Đợt 1: Tấn Công',
       date: '13/3 - 17/3/1954',
-      description: 'Tiêu diệt các cứ điểm Him Lam, Độc Lập, Hồng Cúm. Đánh chiếm sân bay Mường Thanh.',
+      description: 'Tiêu diệt Him Lam (13/3), Độc Lập (15/3), Bản Kéo (17/3). Đánh chiếm sân bay Mường Thanh.',
       icon: Sword,
       color: 'from-red-500 to-red-700',
       bgColor: 'from-red-900/40 to-red-700/40',
       details: [
-        'Tiêu diệt 3 cứ điểm quan trọng',
-        'Chiếm sân bay Mường Thanh',
-        'Phá hủy 12 máy bay địch',
-        'Bắt sống 1,000 tù binh'
+        'Him Lam – 13/3/1954',
+        'Độc Lập – 15/3/1954',
+        'Bản Kéo – 17/3/1954',
+        'Chiếm sân bay Mường Thanh'
       ]
     },
     {
@@ -56,15 +56,15 @@ const DBPTimeline: React.FC = () => {
       id: 3,
       title: 'Đợt 3: Quyết Định',
       date: '1/5 - 7/5/1954',
-      description: 'Tổng tấn công cuối cùng. 7/5/1954 địch đầu hàng, chiến thắng hoàn toàn.',
+      description: 'Tổng tấn công cuối cùng: cao điểm A1 (6/5) và Hồng Cúm, 7/5/1954 địch đầu hàng.',
       icon: Flag,
       color: 'from-yellow-500 to-yellow-700',
       bgColor: 'from-yellow-900/40 to-yellow-700/40',
       details: [
-        'Tổng tấn công cuối cùng',
+        'Đánh chiếm A1 – 6/5/1954',
+        'Hồng Cúm bị cô lập và hạ – 7/5/1954',
         'Địch đầu hàng 7/5/1954',
-        'Chiến thắng hoàn toàn',
-        'Kết thúc chiến tranh'
+        'Chiến thắng hoàn toàn'
       ]
     }
   ];

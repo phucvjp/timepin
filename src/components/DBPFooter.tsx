@@ -94,7 +94,7 @@ const DBPFooter: React.FC = () => {
           >
             <h4 className="text-2xl md:text-3xl font-bold text-white mb-6">Thống Kê</h4>
             {[
-              { icon: Calendar, label: 'Thời gian', value: '56 ngày đêm' },
+              { icon: Calendar, label: 'Thời gian', value: '13/3 – 7/5/1954 (56 ngày đêm)' },
               { icon: Users, label: 'Quân ta', value: '55,000 chiến sĩ' },
               { icon: MapPin, label: 'Kết quả', value: '16,200 địch tiêu diệt' },
             ].map((stat, idx) => (

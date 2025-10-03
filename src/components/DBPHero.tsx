@@ -56,7 +56,8 @@ const DBPHero: React.FC = () => {
           transition={{ delay: 0.3 }}
           className="mt-6 md:mt-8 text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white/95 tracking-wide"
         >
-          1954 - 2025
+          13/3 – 7/5/1954
+          <span className="block text-base md:text-lg lg:text-xl font-normal text-gray-300 mt-2">(1 tháng, 3 tuần và 3 ngày)</span>
         </motion.div>
 
         <motion.p
