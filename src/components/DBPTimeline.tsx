@@ -70,7 +70,7 @@ const DBPTimeline: React.FC = () => {
   ];
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: ReturnType<typeof setInterval>;
     if (isPlaying) {
       interval = setInterval(() => {
         setCurrentPhase(prev => (prev + 1) % phases.length);
