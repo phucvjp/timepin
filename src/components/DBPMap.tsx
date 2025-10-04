@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import {  Flag, Target, Users, Calendar, X } from 'lucide-react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Flag, Target, Users, Calendar, X } from "lucide-react";
 
 const DBPMap: React.FC = () => {
   interface Base {
@@ -8,7 +8,7 @@ const DBPMap: React.FC = () => {
     name: string;
     x: number; // percentage position on X axis
     y: number; // percentage position on Y axis
-    status: 'destroyed' | 'active' | string;
+    status: "destroyed" | "active" | string;
     phase: number;
     description: string;
     casualties: string;
@@ -19,87 +19,88 @@ const DBPMap: React.FC = () => {
   const [currentPhase, setCurrentPhase] = useState(0);
 
   const phases = [
-    { id: 0, title: 'Chuẩn Bị', color: 'blue' },
-    { id: 1, title: 'Đợt 1', color: 'red' },
-    { id: 2, title: 'Đợt 2', color: 'orange' },
-    { id: 3, title: 'Đợt 3', color: 'yellow' }
+    { id: 0, title: "Chuẩn Bị", color: "blue" },
+    { id: 1, title: "Đợt 1", color: "red" },
+    { id: 2, title: "Đợt 2", color: "orange" },
+    { id: 3, title: "Đợt 3", color: "yellow" },
   ];
 
   const bases: Base[] = [
-    { 
-      id: 1, 
-      name: 'Him Lam', 
-      x: 25, 
-      y: 30, 
-      status: 'destroyed', 
+    {
+      id: 1,
+      name: "Him Lam",
+      x: 25,
+      y: 30,
+      status: "destroyed",
       phase: 1,
-      description: 'Cứ điểm phòng thủ quan trọng của địch, bị tiêu diệt trong đợt 1',
-      casualties: '2,000 địch bị tiêu diệt',
-      date: '13/3/1954'
+      description:
+        "Cứ điểm phòng thủ quan trọng của địch, bị tiêu diệt trong đợt 1",
+      casualties: "2,000 địch bị tiêu diệt",
+      date: "13/3/1954",
     },
-    { 
-      id: 2, 
-      name: 'Độc Lập', 
-      x: 45, 
-      y: 25, 
-      status: 'destroyed', 
+    {
+      id: 2,
+      name: "Độc Lập",
+      x: 45,
+      y: 25,
+      status: "destroyed",
       phase: 1,
-      description: 'Cứ điểm trung tâm, nơi địch tập trung lực lượng chính',
-      casualties: '3,500 địch bị tiêu diệt',
-      date: '15/3/1954'
+      description: "Cứ điểm trung tâm, nơi địch tập trung lực lượng chính",
+      casualties: "3,500 địch bị tiêu diệt",
+      date: "15/3/1954",
     },
-    { 
-      id: 3, 
-      name: 'Bản Kéo', 
-      x: 65, 
-      y: 35, 
-      status: 'destroyed', 
+    {
+      id: 3,
+      name: "Bản Kéo",
+      x: 65,
+      y: 35,
+      status: "destroyed",
       phase: 1,
-      description: 'Cứ điểm then chốt án ngữ phía nam, bị tiêu diệt trong đợt 1',
-      casualties: '1,800 địch bị tiêu diệt',
-      date: '17/3/1954'
+      description:
+        "Cứ điểm then chốt án ngữ phía nam, bị tiêu diệt trong đợt 1",
+      casualties: "1,800 địch bị tiêu diệt",
+      date: "17/3/1954",
     },
-    { 
-      id: 4, 
-      name: 'A1', 
-      x: 30, 
-      y: 60, 
-      status: 'destroyed', 
+    {
+      id: 4,
+      name: "A1",
+      x: 30,
+      y: 60,
+      status: "destroyed",
       phase: 3,
-      description: 'Cứ điểm ác liệt nhất, then chốt quyết định thắng lợi',
-      casualties: '4,200 địch bị tiêu diệt',
-      date: '6/5/1954'
+      description: "Cứ điểm ác liệt nhất, then chốt quyết định thắng lợi",
+      casualties: "4,200 địch bị tiêu diệt",
+      date: "6/5/1954",
     },
-    { 
-      id: 5, 
-      name: 'C1', 
-      x: 55, 
-      y: 65, 
-      status: 'destroyed', 
+    {
+      id: 5,
+      name: "C1",
+      x: 55,
+      y: 65,
+      status: "destroyed",
       phase: 2,
-      description: 'Cứ điểm phía nam, bị bao vây và tiêu diệt',
-      casualties: '2,800 địch bị tiêu diệt',
-      date: '15/4/1954'
+      description: "Cứ điểm phía nam, bị bao vây và tiêu diệt",
+      casualties: "2,800 địch bị tiêu diệt",
+      date: "15/4/1954",
     },
-    { 
-      id: 6, 
-      name: 'Hồng Cúm', 
-      x: 50, 
-      y: 50, 
-      status: 'destroyed', 
+    {
+      id: 6,
+      name: "Hồng Cúm",
+      x: 50,
+      y: 50,
+      status: "destroyed",
       phase: 3,
-      description: 'Cứ điểm lớn ở phía nam bị cô lập và hạ trong đợt 3',
-      casualties: '2,900 địch bị tiêu diệt',
-      date: '7/5/1954'
-    }
+      description: "Cứ điểm lớn ở phía nam bị cô lập và hạ trong đợt 3",
+      casualties: "2,900 địch bị tiêu diệt",
+      date: "7/5/1954",
+    },
   ];
-
 
   const getStatusColor = (base: Base) => {
     if (base.phase <= currentPhase) {
-      return 'bg-red-500 border-red-400';
+      return "bg-red-500 border-red-400";
     }
-    return 'bg-blue-500 border-blue-400';
+    return "bg-blue-500 border-blue-400";
   };
 
   return (
@@ -127,10 +128,13 @@ const DBPMap: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setCurrentPhase(phase.id)}
+              style={{
+                background: currentPhase === phase.id ? "red" : "orange",
+              }}
               className={`px-8 py-4 rounded-full font-bold text-lg transition-all ${
                 currentPhase === phase.id
                   ? `bg-${phase.color}-600 text-black shadow-2xl shadow-${phase.color}-500/50`
-                  : 'bg-black/5 text-black/70 hover:bg-black/10 dark:bg-white/10 dark:text-white/70 dark:hover:bg-white/20'
+                  : "bg-black/5 text-black/70 hover:bg-black/10 dark:bg-white/10 dark:text-white/70 dark:hover:bg-white/20"
               }`}
             >
               {phase.title}
@@ -142,14 +146,34 @@ const DBPMap: React.FC = () => {
         <div className="relative bg-gradient-to-br from-green-200/40 to-amber-200/40 dark:from-green-900/40 dark:to-brown-900/40 backdrop-blur-md rounded-3xl p-12 md:p-16 border border-yellow-700/20 dark:border-yellow-500/30 shadow-2xl mb-12">
           <div className="relative aspect-video bg-gradient-to-br from-green-100/60 to-amber-100/60 dark:from-green-800/50 dark:to-brown-800/50 rounded-2xl overflow-hidden border-2 border-yellow-700/40 dark:border-yellow-600/50">
             {/* Mountains Background */}
-            <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <polygon points="0,70 20,40 40,60 60,30 80,50 100,60 100,100 0,100" fill="currentColor" className="text-green-300 dark:text-green-900" />
-              <polygon points="10,80 30,50 50,70 70,45 90,65 100,75 100,100 0,100" fill="currentColor" className="text-green-200 dark:text-green-800" />
+            <svg
+              className="absolute inset-0 w-full h-full opacity-30"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+            >
+              <polygon
+                points="0,70 20,40 40,60 60,30 80,50 100,60 100,100 0,100"
+                fill="currentColor"
+                className="text-green-300 dark:text-green-900"
+              />
+              <polygon
+                points="10,80 30,50 50,70 70,45 90,65 100,75 100,100 0,100"
+                fill="currentColor"
+                className="text-green-200 dark:text-green-800"
+              />
             </svg>
 
             {/* River */}
-            <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <path d="M0,85 Q25,80 50,85 T100,85 L100,100 L0,100 Z" fill="currentColor" className="text-blue-400 dark:text-blue-600" />
+            <svg
+              className="absolute inset-0 w-full h-full opacity-20"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M0,85 Q25,80 50,85 T100,85 L100,100 L0,100 Z"
+                fill="currentColor"
+                className="text-blue-400 dark:text-blue-600"
+              />
             </svg>
 
             {/* Bases */}
@@ -162,16 +186,20 @@ const DBPMap: React.FC = () => {
                 initial={{ scale: 0 }}
                 animate={{
                   scale: base.phase <= currentPhase ? [1, 1.2, 1] : 1,
-                  opacity: base.phase <= currentPhase ? 0.8 : 1
+                  opacity: base.phase <= currentPhase ? 0.8 : 1,
                 }}
-                transition={{ 
-                  duration: 0.5, 
+                transition={{
+                  duration: 0.5,
                   repeat: base.phase === currentPhase ? Infinity : 0,
-                  repeatDelay: 1
+                  repeatDelay: 1,
                 }}
                 whileHover={{ scale: 1.1 }}
               >
-                <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full border-2 flex items-center justify-center transition-all ${getStatusColor(base)}`}>
+                <div
+                  className={`w-16 h-16 md:w-20 md:h-20 rounded-full border-2 flex items-center justify-center transition-all ${getStatusColor(
+                    base
+                  )}`}
+                >
                   {base.phase <= currentPhase ? (
                     <motion.div
                       initial={{ scale: 0, rotate: -180 }}
@@ -184,7 +212,7 @@ const DBPMap: React.FC = () => {
                     <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-full" />
                   )}
                 </div>
-                
+
                 {/* Base Label */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -234,15 +262,21 @@ const DBPMap: React.FC = () => {
           <div className="mt-12 flex justify-center gap-12">
             <div className="flex items-center gap-4">
               <div className="w-6 h-6 bg-blue-500 border-2 border-blue-400 rounded-full" />
-              <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Cứ điểm địch</span>
+              <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">
+                Cứ điểm địch
+              </span>
             </div>
             <div className="flex items-center gap-4">
               <div className="w-6 h-6 bg-red-500 border-2 border-red-400 rounded-full" />
-              <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Đã tiêu diệt</span>
+              <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">
+                Đã tiêu diệt
+              </span>
             </div>
             <div className="flex items-center gap-4">
               <div className="w-6 h-6 bg-yellow-500 border-2 border-yellow-400 rounded-full" />
-              <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Chiến thắng</span>
+              <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">
+                Chiến thắng
+              </span>
             </div>
           </div>
         </div>
@@ -265,7 +299,9 @@ const DBPMap: React.FC = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex justify-between items-start mb-8">
-                  <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white">{selectedBase.name}</h3>
+                  <h3 className="text-3xl md:text-4xl font-bold text-black dark:text-white">
+                    {selectedBase.name}
+                  </h3>
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -279,17 +315,23 @@ const DBPMap: React.FC = () => {
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <Calendar className="w-6 h-6 text-yellow-400" />
-                    <span className="text-gray-700 dark:text-gray-300 text-lg">{selectedBase.date}</span>
+                    <span className="text-gray-700 dark:text-gray-300 text-lg">
+                      {selectedBase.date}
+                    </span>
                   </div>
 
                   <div className="flex items-center gap-4">
                     <Users className="w-6 h-6 text-red-400" />
-                    <span className="text-gray-700 dark:text-gray-300 text-lg">{selectedBase.casualties}</span>
+                    <span className="text-gray-700 dark:text-gray-300 text-lg">
+                      {selectedBase.casualties}
+                    </span>
                   </div>
 
                   <div className="flex items-center gap-4">
                     <Target className="w-6 h-6 text-blue-400" />
-                    <span className="text-gray-700 dark:text-gray-300 text-lg">Giai đoạn {selectedBase.phase + 1}</span>
+                    <span className="text-gray-700 dark:text-gray-300 text-lg">
+                      Giai đoạn {selectedBase.phase + 1}
+                    </span>
                   </div>
 
                   <p className="text-gray-800 dark:text-gray-200 leading-relaxed mt-6 text-lg">

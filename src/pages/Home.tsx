@@ -1,6 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 import cmt8Img from "../assets/cmt8.jpg";
 import dbpImg from "../assets/dbp.jpg";
 import tthcmImg from "../assets/tthcm.jpg";
@@ -81,8 +86,6 @@ const Home: React.FC = () => {
     return () => clearInterval(id);
   }, []);
 
-  
-
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -133,7 +136,10 @@ const Home: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section
+        id="hero"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      >
         {/* Floating particles */}
         <div className="absolute inset-0 pointer-events-none">
           {[...Array(20)].map((_, i) => (
@@ -167,14 +173,14 @@ const Home: React.FC = () => {
             left: "5%",
             top: "15%",
           }}
-          >
-            <motion.img
-              className="w-72 h-96 object-cover rounded-2xl shadow-2xl ring-2 ring-yellow-400/30"
-              src={chandunghcm}
-              alt="Chân dung Chủ tịch Hồ Chí Minh"
-              whileHover={{ scale: 1.05, rotate: -5 }}
-              style={{ opacity }}
-            />
+        >
+          <motion.img
+            className="w-72 h-96 object-cover rounded-2xl shadow-2xl ring-2 ring-yellow-400/30"
+            src={chandunghcm}
+            alt="Chân dung Chủ tịch Hồ Chí Minh"
+            whileHover={{ scale: 1.05, rotate: -5 }}
+            style={{ opacity }}
+          />
         </motion.div>
 
         <motion.div
@@ -209,7 +215,9 @@ const Home: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
             >
-              <span className="text-yellow-300 text-sm font-medium">✨ Hành trình khám phá lịch sử</span>
+              <span className="text-yellow-300 text-sm font-medium">
+                ✨ Hành trình khám phá lịch sử
+              </span>
             </motion.div>
 
             <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-6">
@@ -217,7 +225,9 @@ const Home: React.FC = () => {
                 Lịch sử
               </span>
               <br />
-              <span className="text-white">Hồ Chí Minh</span>
+              <span className="bg-gradient-to-r from-yellow-400 via-red-500 to-orange-400 bg-clip-text text-transparent drop-shadow-2xl">
+                Hồ Chí Minh
+              </span>
             </h1>
 
             <motion.p
@@ -226,7 +236,10 @@ const Home: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              Trải nghiệm tương tác đầy cảm hứng về <span className="text-yellow-300 font-semibold">tư tưởng</span> và <span className="text-red-300 font-semibold">di sản</span> của vị lãnh tụ vĩ đại
+              Trải nghiệm tương tác đầy cảm hứng về{" "}
+              <span className="text-yellow-300 font-semibold">tư tưởng</span> và{" "}
+              <span className="text-red-300 font-semibold">di sản</span> của vị
+              lãnh tụ vĩ đại
             </motion.p>
 
             <div className="flex flex-wrap gap-4 justify-center">
@@ -234,8 +247,12 @@ const Home: React.FC = () => {
                 type="button"
                 onClick={(e) => {
                   e.preventDefault();
-                  const el = document.querySelector('#stories');
-                  if (el) (el as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  const el = document.querySelector("#stories");
+                  if (el)
+                    (el as HTMLElement).scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
                 }}
                 className="group relative px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 rounded-full text-lg font-semibold shadow-2xl overflow-hidden transition-all hover:scale-105"
               >
@@ -278,7 +295,9 @@ const Home: React.FC = () => {
               </span>{" "}
               lịch sử
             </h2>
-            <p className="text-xl text-slate-400">Khám phá những mốc son chói lọi của dân tộc</p>
+            <p className="text-xl text-slate-400">
+              Khám phá những mốc son chói lọi của dân tộc
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -303,23 +322,23 @@ const Home: React.FC = () => {
                       transition={{ duration: 0.6 }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-                    
+
                     {/* Hover effect overlay */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-red-500/0 to-yellow-500/0 group-hover:from-red-500/20 group-hover:to-yellow-500/20 transition-all duration-500"
-                    />
+                    <motion.div className="absolute inset-0 bg-gradient-to-br from-red-500/0 to-yellow-500/0 group-hover:from-red-500/20 group-hover:to-yellow-500/20 transition-all duration-500" />
                   </div>
 
                   <div className="p-6 relative">
                     <div className="absolute -top-4 right-6 w-12 h-12 bg-gradient-to-br from-red-500 to-yellow-500 rounded-full flex items-center justify-center text-2xl shadow-lg">
                       {idx === 0 ? "🏛️" : idx === 1 ? "⭐" : "💡"}
                     </div>
-                    
+
                     <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-yellow-300 transition-colors">
                       {s.title}
                     </h3>
-                    <p className="text-slate-300 leading-relaxed mb-4">{s.excerpt}</p>
-                    
+                    <p className="text-slate-300 leading-relaxed mb-4">
+                      {s.excerpt}
+                    </p>
+
                     <div className="flex items-center text-yellow-400 font-semibold group-hover:gap-3 gap-2 transition-all">
                       <span>Tìm hiểu thêm</span>
                       <span>→</span>
@@ -335,7 +354,7 @@ const Home: React.FC = () => {
       {/* Quote Showcase */}
       <section id="quotes" className="relative py-32 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-red-950/50 to-transparent" />
-        
+
         <div className="relative mx-auto max-w-5xl">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -343,9 +362,13 @@ const Home: React.FC = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="absolute -top-8 -left-8 text-9xl text-yellow-500/20 font-serif">"</div>
-            <div className="absolute -bottom-8 -right-8 text-9xl text-yellow-500/20 font-serif">"</div>
-            
+            <div className="absolute -top-8 -left-8 text-9xl text-yellow-500/20 font-serif">
+              "
+            </div>
+            <div className="absolute -bottom-8 -right-8 text-9xl text-yellow-500/20 font-serif">
+              "
+            </div>
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeQuote}
@@ -360,7 +383,9 @@ const Home: React.FC = () => {
                 </p>
                 <div className="flex items-center justify-center gap-3">
                   <div className="h-px w-12 bg-gradient-to-r from-transparent to-yellow-500" />
-                  <span className="text-yellow-400 text-xl font-semibold">{hcmQuotes[activeQuote].meta}</span>
+                  <span className="text-yellow-400 text-xl font-semibold">
+                    {hcmQuotes[activeQuote].meta}
+                  </span>
                   <div className="h-px w-12 bg-gradient-to-l from-transparent to-yellow-500" />
                 </div>
               </motion.div>
@@ -373,7 +398,9 @@ const Home: React.FC = () => {
                   key={i}
                   onClick={() => setActiveQuote(i)}
                   className={`h-2 rounded-full transition-all ${
-                    i === activeQuote ? "w-8 bg-yellow-400" : "w-2 bg-white/30 hover:bg-white/50"
+                    i === activeQuote
+                      ? "w-8 bg-yellow-400"
+                      : "w-2 bg-white/30 hover:bg-white/50"
                   }`}
                 />
               ))}
@@ -392,9 +419,14 @@ const Home: React.FC = () => {
             className="text-center mb-16"
           >
             <h2 className="text-5xl md:text-6xl font-bold mb-4">
-              Kho <span className="bg-gradient-to-r from-red-300 to-yellow-300 bg-clip-text text-transparent">tư liệu</span>
+              Kho{" "}
+              <span className="bg-gradient-to-r from-red-300 to-yellow-300 bg-clip-text text-transparent">
+                tư liệu
+              </span>
             </h2>
-            <p className="text-xl text-slate-400">Hình ảnh quý báu về lịch sử dân tộc</p>
+            <p className="text-xl text-slate-400">
+              Hình ảnh quý báu về lịch sử dân tộc
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -433,15 +465,33 @@ const Home: React.FC = () => {
             className="text-center mb-16"
           >
             <h2 className="text-5xl md:text-6xl font-bold mb-4">
-              Công cụ <span className="bg-gradient-to-r from-yellow-300 to-red-300 bg-clip-text text-transparent">học tập</span>
+              Công cụ{" "}
+              <span className="bg-gradient-to-r from-yellow-300 to-red-300 bg-clip-text text-transparent">
+                học tập
+              </span>
             </h2>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: "📘", title: "Bài học nhanh", desc: "Micro-learning với tóm tắt, mốc thời gian, bản đồ tư duy.", color: "from-blue-500 to-cyan-500" },
-              { icon: "🧭", title: "Câu hỏi tương tác", desc: "Trắc nghiệm, tình huống mở, gợi ý theo ngữ cảnh.", color: "from-purple-500 to-pink-500" },
-              { icon: "🔖", title: "Lưu tư liệu", desc: "Đánh dấu, sưu tầm ảnh, trích dẫn, và ghi chú nhanh.", color: "from-orange-500 to-red-500" },
+              {
+                icon: "📘",
+                title: "Bài học nhanh",
+                desc: "Micro-learning với tóm tắt, mốc thời gian, bản đồ tư duy.",
+                color: "from-blue-500 to-cyan-500",
+              },
+              {
+                icon: "🧭",
+                title: "Câu hỏi tương tác",
+                desc: "Trắc nghiệm, tình huống mở, gợi ý theo ngữ cảnh.",
+                color: "from-purple-500 to-pink-500",
+              },
+              {
+                icon: "🔖",
+                title: "Lưu tư liệu",
+                desc: "Đánh dấu, sưu tầm ảnh, trích dẫn, và ghi chú nhanh.",
+                color: "from-orange-500 to-red-500",
+              },
             ].map((tool, idx) => (
               <motion.div
                 key={idx}
@@ -453,14 +503,18 @@ const Home: React.FC = () => {
                 className="group relative"
               >
                 <div className="relative p-8 rounded-3xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-white/10 overflow-hidden">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${tool.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                  
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${tool.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+                  />
+
                   <div className="relative">
                     <div className="text-5xl mb-4">{tool.icon}</div>
                     <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-yellow-300 transition-colors">
                       {tool.title}
                     </h3>
-                    <p className="text-slate-300 leading-relaxed">{tool.desc}</p>
+                    <p className="text-slate-300 leading-relaxed">
+                      {tool.desc}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -529,29 +583,49 @@ const Home: React.FC = () => {
             <div>
               <h5 className="font-semibold mb-3 text-white">Khám phá</h5>
               <div className="space-y-2 text-slate-400">
-                <Link to="#" className="block hover:text-white transition-colors">Câu chuyện lịch sử</Link>
-                <Link to="#" className="block hover:text-white transition-colors">Kho tư liệu</Link>
-                <Link to="#" className="block hover:text-white transition-colors">Sự kiện</Link>
+                <Link
+                  to="#"
+                  className="block hover:text-white transition-colors"
+                >
+                  Câu chuyện lịch sử
+                </Link>
+                <Link
+                  to="#"
+                  className="block hover:text-white transition-colors"
+                >
+                  Kho tư liệu
+                </Link>
+                <Link
+                  to="#"
+                  className="block hover:text-white transition-colors"
+                >
+                  Sự kiện
+                </Link>
               </div>
             </div>
             <div>
               <h5 className="font-semibold mb-3 text-white">Kết nối</h5>
               <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-xl transition-all hover:scale-110">
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-xl transition-all hover:scale-110"
+                >
                   🌐
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-xl transition-all hover:scale-110">
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-xl transition-all hover:scale-110"
+                >
                   📸
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-xl transition-all hover:scale-110">
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-xl transition-all hover:scale-110"
+                >
                   ▶️
                 </a>
               </div>
             </div>
-          </div>
-          
-          <div className="pt-8 border-t border-white/10 text-center text-slate-400">
-            <p>© 2025 — Khơi dậy niềm tự hào dân tộc</p>
           </div>
         </div>
       </footer>
@@ -591,9 +665,11 @@ const Home: React.FC = () => {
                   alt={openStory.title}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
-                
+
                 <div className="absolute bottom-6 left-6 right-6">
-                  <h4 className="text-3xl font-bold text-white mb-2">{openStory.title}</h4>
+                  <h4 className="text-3xl font-bold text-white mb-2">
+                    {openStory.title}
+                  </h4>
                 </div>
               </div>
 
@@ -602,7 +678,7 @@ const Home: React.FC = () => {
                 <p className="text-lg text-slate-300 leading-relaxed mb-6">
                   {openStory.content}
                 </p>
-                
+
                 {openStory.quote && (
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}

@@ -5,12 +5,11 @@ import cachMangThangTamHero from "../assets/cach-mang-thang-tam-hero.jpg";
 import hanoiUprising from "../assets/hanoi-uprising.jpg";
 import saigonUprising from "../assets/saigon-uprising.jpg";
 import dietPhatXit from "../assets/diet-phat-xit.mp3";
-import { useNavigate } from "react-router-dom";
+import { HomeButton } from "../components/HomeButton";
 
 const CachMangThangTam: React.FC = () => {
   const [quizAnswer, setQuizAnswer] = useState<string>("");
   const [showQuizResult, setShowQuizResult] = useState<boolean>(false);
-  const navigate = useNavigate();
 
   const handleQuizSubmit = () => {
     setShowQuizResult(true);
@@ -22,7 +21,9 @@ const CachMangThangTam: React.FC = () => {
       <section id="hero-section" className="hero-section">
         <div className="hero-overlay">
           <div className="hero-content">
-            <h1 className="hero-title">Cách mạng Tháng Tám 1945</h1>
+            <h1 className="hero-title bg-gradient-to-r from-red-500 via-orange-400 to-red-500 bg-clip-text text-transparent drop-shadow-2xl">
+              Cách mạng Tháng Tám 1945
+            </h1>
             <p className="hero-subtitle">
               Dấu mốc khai sinh nước Việt Nam Dân chủ Cộng hòa
             </p>
@@ -115,7 +116,7 @@ const CachMangThangTam: React.FC = () => {
           {/* Audio/Podcast */}
           <div className="audio-section">
             <h3>Bài hát: Diệt Phát Xít - Nguyễn Đình Thi</h3>
-            <div className="audio-player">
+            <div className="audio-player flex justify-center">
               <audio controls className="audio-control">
                 <source src={dietPhatXit} type="audio/mpeg" />
                 Trình duyệt của bạn không hỗ trợ phát audio.
@@ -260,9 +261,7 @@ const CachMangThangTam: React.FC = () => {
           </div>
           <br />
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <button className="btn btn-primary" onClick={() => navigate("/")}>
-              Trở về trang chủ
-            </button>
+            <HomeButton />
           </div>
         </div>
       </section>

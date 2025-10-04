@@ -34,6 +34,11 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<ProductList />} />
               <Route path="/products/:id" element={<ProductDetail />} />
+              <Route
+                path="/chien-dich-dien-bien-phu"
+                element={<ChienDichDienBienPhu />}
+              />
+              <Route path="/tuyen-ngon-doc-lap" element={<TuyenNgonDocLap />} />
             </Route>
             <Route
               element={
@@ -47,15 +52,8 @@ function App() {
                 path="/cach-mang-thang-tam"
                 element={<CachMangThangTam />}
               />
-              <Route
-                path="/tuyen-ngon-doc-lap"
-                element={<TuyenNgonDocLap />}
-              />
             </Route>
-            <Route
-              path="/chien-dich-dien-bien-phu"
-              element={<ChienDichDienBienPhu />}
-            />
+
             <Route path="/exhibition" element={<ExhibitionScreen />} />
             {/* Catch-all route for 404 */}
             <Route
@@ -71,10 +69,7 @@ function App() {
           </Routes>
 
           <footer className="footer">
-            <p>
-              &copy; 2025 TimePin. Connecting history and youth through QR
-              stories.
-            </p>
+            <p>© 2025 TimePin — Khơi dậy niềm tự hào dân tộc</p>
           </footer>
         </div>
       </Router>

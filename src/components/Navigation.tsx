@@ -24,29 +24,29 @@ const Navigation: React.FC = () => {
       title: "Tư tưởng đại đoàn kết toàn dân tộc",
       author: "TimePin Studio",
       src: epDoanKet,
-      coverEmoji: "🤝"
+      coverEmoji: "🤝",
     },
     {
       id: "ep-le-chi-vien",
       title: "Kỳ án Lệ Chi Viên – Nguyễn Trãi",
       author: "TimePin Studio",
       src: epLeChiVien,
-      coverEmoji: "⚖️"
+      coverEmoji: "⚖️",
     },
     {
       id: "ep-nguyen-ai-quoc",
       title: "Nguyễn Ái Quốc – Ẩn số từ nước Pháp",
       author: "TimePin Studio",
       src: epNguyenAiQuoc,
-      coverEmoji: "🇫🇷"
+      coverEmoji: "🇫🇷",
     },
     {
       id: "ep-tom-tat-lsvn",
       title: "Tóm tắt lịch sử Việt Nam",
       author: "TimePin Studio",
       src: epTomTatLSVN,
-      coverEmoji: "📚"
-    }
+      coverEmoji: "📚",
+    },
   ];
 
   const currentEpisode = episodes[currentEpisodeIndex];
@@ -56,12 +56,12 @@ const Navigation: React.FC = () => {
     if (!audio) return;
     const onTime = () => setPodcastProgress(audio.currentTime || 0);
     const onDur = () => setPodcastDuration(audio.duration || 0);
-    audio.addEventListener('timeupdate', onTime);
-    audio.addEventListener('durationchange', onDur);
-    audio.addEventListener('ended', () => setIsPodcastPlaying(false));
+    audio.addEventListener("timeupdate", onTime);
+    audio.addEventListener("durationchange", onDur);
+    audio.addEventListener("ended", () => setIsPodcastPlaying(false));
     return () => {
-      audio.removeEventListener('timeupdate', onTime);
-      audio.removeEventListener('durationchange', onDur);
+      audio.removeEventListener("timeupdate", onTime);
+      audio.removeEventListener("durationchange", onDur);
     };
   }, []);
 
@@ -94,7 +94,9 @@ const Navigation: React.FC = () => {
   const formatTime = (s: number) => {
     if (!isFinite(s) || s < 0) return "0:00";
     const m = Math.floor(s / 60);
-    const sec = Math.floor(s % 60).toString().padStart(2, '0');
+    const sec = Math.floor(s % 60)
+      .toString()
+      .padStart(2, "0");
     return `${m}:${sec}`;
   };
 
@@ -123,42 +125,68 @@ const Navigation: React.FC = () => {
 
   return (
     <>
-      <nav className="navbar" style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 50,
-        background: "linear-gradient(to right, rgba(2,6,23,0.7), rgba(127,29,29,0.35), rgba(2,6,23,0.7))",
-        backdropFilter: "blur(10px)",
-        borderBottom: "1px solid rgba(255,255,255,0.08)",
-      }}>
-        <div className="nav-container" style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "0.75rem 1rem",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between"
-        }}>
-          <Link to="/" className="nav-logo" style={{
-            fontWeight: 800,
-            fontSize: "1.25rem",
-            background: "linear-gradient(90deg, #fde68a, #fca5a5)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-            textDecoration: "none"
-          }}>
+      <nav
+        className="navbar"
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 50,
+          background:
+            "linear-gradient(to right, rgba(2,6,23,0.7), rgba(127,29,29,0.35), rgba(2,6,23,0.7))",
+          backdropFilter: "blur(10px)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+        }}
+      >
+        <div
+          className="nav-container"
+          style={{
+            maxWidth: 1200,
+            margin: "0 auto",
+            padding: "0.75rem 1rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Link
+            to="/"
+            className="nav-logo"
+            style={{
+              fontWeight: 800,
+              fontSize: "1.25rem",
+              background: "linear-gradient(90deg, #fde68a, #fca5a5)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+              textDecoration: "none",
+            }}
+          >
             TimePin
           </Link>
-          <div className="nav-content" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <div
+            className="nav-content"
+            style={{ display: "flex", alignItems: "center", gap: "1rem" }}
+          >
             <div className="nav-links" style={{ display: "flex", gap: "1rem" }}>
-              <Link to="/" className="nav-link" style={{ color: "#e5e7eb", textDecoration: "none" }}>
+              <Link
+                to="/"
+                className="nav-link"
+                style={{ color: "#e5e7eb", textDecoration: "none" }}
+              >
                 Home
               </Link>
-              <Link to="/products" className="nav-link" style={{ color: "#e5e7eb", textDecoration: "none" }}>
+              <Link
+                to="/products"
+                className="nav-link"
+                style={{ color: "#e5e7eb", textDecoration: "none" }}
+              >
                 Products
               </Link>
-              <Link to="/exhibition" className="nav-link" style={{ color: "#e5e7eb", textDecoration: "none" }}>
+              <Link
+                to="/exhibition"
+                className="nav-link"
+                style={{ color: "#e5e7eb", textDecoration: "none" }}
+              >
                 Exhibition
               </Link>
             </div>
@@ -173,22 +201,50 @@ const Navigation: React.FC = () => {
                   gap: "0.75rem",
                   padding: "0.4rem 0.6rem",
                   borderRadius: "9999px",
-                  background: isPodcastPlaying ? "rgba(34,197,94,0.15)" : "rgba(255,255,255,0.06)",
-                  border: isPodcastPlaying ? "1px solid rgba(34,197,94,0.35)" : "1px solid rgba(255,255,255,0.08)",
+                  background: isPodcastPlaying
+                    ? "rgba(34,197,94,0.15)"
+                    : "rgba(255,255,255,0.06)",
+                  border: isPodcastPlaying
+                    ? "1px solid rgba(34,197,94,0.35)"
+                    : "1px solid rgba(255,255,255,0.08)",
                   transition: "all .2s ease",
-                  cursor: "pointer"
+                  cursor: "pointer",
                 }}
                 onClick={togglePodcast}
                 title={isPodcastPlaying ? "Pause podcast" : "Play podcast"}
               >
                 <div style={{ fontSize: 18 }}>{currentEpisode.coverEmoji}</div>
-                <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
-                  <span style={{ fontSize: 12, color: isPodcastPlaying ? "#86efac" : "#e5e7eb", fontWeight: 700 }}>{currentEpisode.title}</span>
-                  <span style={{ fontSize: 11, color: isPodcastPlaying ? "#bbf7d0" : "#9ca3af" }}>{currentEpisode.author}</span>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    lineHeight: 1,
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: 12,
+                      color: isPodcastPlaying ? "#86efac" : "#e5e7eb",
+                      fontWeight: 700,
+                    }}
+                  >
+                    {currentEpisode.title}
+                  </span>
+                  <span
+                    style={{
+                      fontSize: 11,
+                      color: isPodcastPlaying ? "#bbf7d0" : "#9ca3af",
+                    }}
+                  >
+                    {currentEpisode.author}
+                  </span>
                 </div>
                 <button
                   type="button"
-                  onClick={(e) => { e.stopPropagation(); togglePodcast(); }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    togglePodcast();
+                  }}
                   style={{
                     width: 32,
                     height: 32,
@@ -196,34 +252,94 @@ const Navigation: React.FC = () => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: isPodcastPlaying ? "rgba(34,197,94,0.25)" : "rgba(255,255,255,0.12)",
+                    background: isPodcastPlaying
+                      ? "rgba(34,197,94,0.25)"
+                      : "rgba(255,255,255,0.12)",
                     border: "1px solid rgba(255,255,255,0.15)",
                     color: "white",
                     padding: 0,
-                    lineHeight: 0
+                    lineHeight: 0,
                   }}
                   aria-label={isPodcastPlaying ? "Pause" : "Play"}
                 >
                   {isPodcastPlaying ? (
-                    <svg width="14" height="14" viewBox="0 0 24 24" style={{ display: 'block' }}>
-                      <rect x="6" y="5" width="4" height="14" fill="currentColor" rx="1" />
-                      <rect x="14" y="5" width="4" height="14" fill="currentColor" rx="1" />
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      style={{ display: "block" }}
+                    >
+                      <rect
+                        x="6"
+                        y="5"
+                        width="4"
+                        height="14"
+                        fill="currentColor"
+                        rx="1"
+                      />
+                      <rect
+                        x="14"
+                        y="5"
+                        width="4"
+                        height="14"
+                        fill="currentColor"
+                        rx="1"
+                      />
                     </svg>
                   ) : (
-                    <svg width="14" height="14" viewBox="0 0 24 24" style={{ display: 'block', transform: 'translateX(0.5px)' }}>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      style={{
+                        display: "block",
+                        transform: "translateX(0.5px)",
+                      }}
+                    >
                       <polygon points="7,5 18,12 7,19" fill="currentColor" />
                     </svg>
                   )}
                 </button>
-                <div style={{ display: "flex", alignItems: "center", gap: 6, minWidth: 120 }} onClick={(e) => e.stopPropagation()}>
-                  <div style={{ position: "relative", flex: 1, height: 6, background: "rgba(255,255,255,0.15)", borderRadius: 9999, overflow: "hidden" }}>
-                    <div style={{ position: "absolute", inset: 0, width: podcastDuration ? `${(podcastProgress / podcastDuration) * 100}%` : '0%', background: isPodcastPlaying ? "#22c55e" : "#e5e7eb" }} />
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 6,
+                    minWidth: 120,
+                  }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div
+                    style={{
+                      position: "relative",
+                      flex: 1,
+                      height: 6,
+                      background: "rgba(255,255,255,0.15)",
+                      borderRadius: 9999,
+                      overflow: "hidden",
+                    }}
+                  >
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        width: podcastDuration
+                          ? `${(podcastProgress / podcastDuration) * 100}%`
+                          : "0%",
+                        background: isPodcastPlaying ? "#22c55e" : "#e5e7eb",
+                      }}
+                    />
                   </div>
-                  <span style={{ fontSize: 11, color: "#e5e7eb" }}>{formatTime(podcastProgress)}</span>
+                  <span style={{ fontSize: 11, color: "#e5e7eb" }}>
+                    {formatTime(podcastProgress)}
+                  </span>
                 </div>
                 <button
                   type="button"
-                  onClick={(e) => { e.stopPropagation(); setShowEpisodeList((s) => !s); }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowEpisodeList((s) => !s);
+                  }}
                   aria-label="Choose episode"
                   style={{
                     width: 28,
@@ -237,15 +353,31 @@ const Navigation: React.FC = () => {
                     color: "white",
                     fontSize: 12,
                     padding: 0,
-                    lineHeight: 0
+                    lineHeight: 0,
                   }}
                   title="Chọn tập"
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" style={{ display: 'block' }}>
-                    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    style={{ display: "block" }}
+                  >
+                    <path
+                      d="M6 9l6 6 6-6"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </button>
-                <audio ref={audioRef} src={currentEpisode.src} preload="metadata" />
+                <audio
+                  ref={audioRef}
+                  src={currentEpisode.src}
+                  preload="metadata"
+                />
               </div>
 
               {showEpisodeList && (
@@ -261,14 +393,18 @@ const Navigation: React.FC = () => {
                     borderRadius: 12,
                     padding: 8,
                     boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
-                    zIndex: 60
+                    zIndex: 60,
                   }}
                 >
                   <div style={{ maxHeight: 320, overflowY: "auto" }}>
                     {episodes.map((ep, i) => (
                       <button
                         key={ep.id}
-                        onClick={() => { setCurrentEpisodeIndex(i); setShowEpisodeList(false); setIsPodcastPlaying(true); }}
+                        onClick={() => {
+                          setCurrentEpisodeIndex(i);
+                          setShowEpisodeList(false);
+                          setIsPodcastPlaying(true);
+                        }}
                         style={{
                           width: "100%",
                           textAlign: "left",
@@ -277,18 +413,45 @@ const Navigation: React.FC = () => {
                           alignItems: "center",
                           padding: "10px 12px",
                           borderRadius: 10,
-                          background: i === currentEpisodeIndex ? "rgba(34,197,94,0.12)" : "transparent",
-                          border: i === currentEpisodeIndex ? "1px solid rgba(34,197,94,0.35)" : "1px solid transparent",
-                          color: "#e5e7eb"
+                          background:
+                            i === currentEpisodeIndex
+                              ? "rgba(34,197,94,0.12)"
+                              : "transparent",
+                          border:
+                            i === currentEpisodeIndex
+                              ? "1px solid rgba(34,197,94,0.35)"
+                              : "1px solid transparent",
+                          color: "#e5e7eb",
                         }}
                       >
                         <span style={{ fontSize: 18 }}>{ep.coverEmoji}</span>
-                        <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.1 }}>
-                          <span style={{ fontSize: 13, fontWeight: 700, color: i === currentEpisodeIndex ? "#86efac" : "#fff" }}>{ep.title}</span>
-                          <span style={{ fontSize: 12, color: "#9ca3af" }}>{ep.author}</span>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            lineHeight: 1.1,
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontSize: 13,
+                              fontWeight: 700,
+                              color:
+                                i === currentEpisodeIndex ? "#86efac" : "#fff",
+                            }}
+                          >
+                            {ep.title}
+                          </span>
+                          <span style={{ fontSize: 12, color: "#9ca3af" }}>
+                            {ep.author}
+                          </span>
                         </div>
                         {i === currentEpisodeIndex && (
-                          <span style={{ marginLeft: "auto", color: "#22c55e" }}>●</span>
+                          <span
+                            style={{ marginLeft: "auto", color: "#22c55e" }}
+                          >
+                            ●
+                          </span>
                         )}
                       </button>
                     ))}
