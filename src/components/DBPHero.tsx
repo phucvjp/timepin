@@ -95,10 +95,11 @@ const DBPHero: React.FC = () => {
             </div>
           </motion.button>
 
+         
           <motion.button
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="group px-10 py-5 bg-white/10 backdrop-blur-md border border-white/30 rounded-full text-white font-bold text-xl hover:bg-white/20 transition-all duration-300"
+            className="group px-10 py-5 bg-black/5 dark:bg-white/10 backdrop-blur-md border border-black/10 dark:border-white/30 rounded-full text-gray-900 dark:text-white font-bold text-xl hover:bg-black/10 dark:hover:bg-white/20 transition-all duration-300"
           >
             <div className="flex items-center gap-4">
               <Flag className="w-7 h-7" />

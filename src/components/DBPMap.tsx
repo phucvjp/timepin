@@ -103,7 +103,7 @@ const DBPMap: React.FC = () => {
   };
 
   return (
-    <section className="py-16 md:py-20 bg-gradient-to-b from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900">
+    <section className="py-16 md:py-20 bg-gradient-to-b from-slate-800 to-slate-900 dark:from-slate-800 dark:to-slate-900">
       <div className="container mx-auto px-2 md:px-10 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -129,7 +129,7 @@ const DBPMap: React.FC = () => {
               onClick={() => setCurrentPhase(phase.id)}
               className={`px-8 py-4 rounded-full font-bold text-lg transition-all ${
                 currentPhase === phase.id
-                  ? `bg-${phase.color}-600 text-white shadow-2xl shadow-${phase.color}-500/50`
+                  ? `bg-${phase.color}-600 text-black shadow-2xl shadow-${phase.color}-500/50`
                   : 'bg-black/5 text-black/70 hover:bg-black/10 dark:bg-white/10 dark:text-white/70 dark:hover:bg-white/20'
               }`}
             >

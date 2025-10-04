@@ -100,119 +100,145 @@ const DBPTimeline: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Controls */}
-        <div className="flex justify-center items-center gap-6 mb-16 px-4">
+     {/* Controls */}
+<div className="flex justify-center items-center gap-6 mb-16 px-4">
+  {/* Prev */}
+  <motion.button
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
+    onClick={prevPhase}
+    className="p-4 
+               bg-black/5 dark:bg-white/10 
+               backdrop-blur-md 
+               border border-black/10 dark:border-white/20 
+               rounded-full 
+               text-gray-900 dark:text-white 
+               hover:bg-black/10 dark:hover:bg-white/20 
+               transition-all"
+  >
+    <ChevronLeft className="w-8 h-8" />
+  </motion.button>
+
+  {/* Play/Pause */}
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    onClick={() => setIsPlaying(!isPlaying)}
+    className="flex items-center gap-4 px-8 py-4 
+               bg-gradient-to-r from-red-600 to-red-700 
+               rounded-full 
+               text-white font-bold text-lg md:text-xl 
+               shadow-2xl shadow-red-500/50"
+  >
+    {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
+    {isPlaying ? "Tạm dừng" : "Tự động"}
+  </motion.button>
+
+  {/* Next */}
+  <motion.button
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
+    onClick={nextPhase}
+    className="p-4 
+               bg-black/5 dark:bg-white/10 
+               backdrop-blur-md 
+               border border-black/10 dark:border-white/20 
+               rounded-full 
+               text-gray-900 dark:text-white 
+               hover:bg-black/10 dark:hover:bg-white/20 
+               transition-all"
+  >
+    <ChevronRight className="w-8 h-8" />
+  </motion.button>
+</div>
+
+
+      {/* Timeline */}
+<div className="relative mb-20 px-2 md:px-6">
+  {/* Progress Line */}
+  <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-red-500 to-yellow-500 rounded-full transform -translate-y-1/2" />
+  <motion.div
+    className="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-yellow-400 to-red-400 rounded-full transform -translate-y-1/2"
+    initial={{ width: "0%" }}
+    animate={{ width: `${((currentPhase + 1) / phases.length) * 100}%` }}
+    transition={{ duration: 0.5 }}
+  />
+
+  {/* Phase Indicators */}
+  <div className="flex justify-between gap-8 px-4 md:px-8">
+    {phases.map((phase, idx) => {
+      const Icon = phase.icon;
+      const isActive = currentPhase === idx;
+      const isCompleted = idx < currentPhase;
+
+      return (
+        <motion.div
+          key={phase.id}
+          className="relative flex flex-col items-center"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: idx * 0.1 }}
+        >
+          {/* Phase Button */}
           <motion.button
+            onClick={() => setCurrentPhase(idx)}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            onClick={prevPhase}
-            className="p-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
+            className={`relative w-20 h-20 md:w-24 md:h-24 rounded-full border-4 flex items-center justify-center transition-all ${
+              isActive
+                ? "border-yellow-400 bg-gradient-to-br from-yellow-400 to-red-500 shadow-2xl shadow-yellow-500/50"
+                : isCompleted
+                ? "border-green-400 bg-gradient-to-br from-green-400 to-green-600"
+                : "border-black/20 dark:border-white/30 bg-black/5 dark:bg-white/10 backdrop-blur-md hover:border-black/40 dark:hover:border-white/50"
+            }`}
+            animate={isActive ? { scale: [1, 1.1, 1] } : {}}
+            transition={{ duration: 1, repeat: Infinity }}
           >
-            <ChevronLeft className="w-8 h-8" />
+            <Icon
+              className={`w-8 h-8 md:w-10 md:h-10 ${
+                isActive
+                  ? "text-white"
+                  : isCompleted
+                  ? "text-white"
+                  : "text-gray-700 dark:text-white/70"
+              }`}
+            />
+            {isCompleted && (
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                className="absolute -top-1 -right-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center"
+              >
+                <span className="text-white text-xs">✓</span>
+              </motion.div>
+            )}
           </motion.button>
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsPlaying(!isPlaying)}
-            className="flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 rounded-full text-white font-bold text-lg md:text-xl shadow-2xl shadow-red-500/50"
-          >
-            {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
-            {isPlaying ? 'Tạm dừng' : 'Tự động'}
-          </motion.button>
-
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={nextPhase}
-            className="p-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all"
-          >
-            <ChevronRight className="w-8 h-8" />
-          </motion.button>
-        </div>
-
-        {/* Timeline */}
-        <div className="relative mb-20 px-2 md:px-6">
-          {/* Progress Line */}
-          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-red-500 to-yellow-500 rounded-full transform -translate-y-1/2" />
+          {/* Phase Title + Date */}
           <motion.div
-            className="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-yellow-400 to-red-400 rounded-full transform -translate-y-1/2"
-            initial={{ width: '0%' }}
-            animate={{ width: `${((currentPhase + 1) / phases.length) * 100}%` }}
-            transition={{ duration: 0.5 }}
-          />
-
-          {/* Phase Indicators */}
-          <div className="flex justify-between gap-8 px-4 md:px-8">
-            {phases.map((phase, idx) => {
-              const Icon = phase.icon;
-              const isActive = currentPhase === idx;
-              const isCompleted = idx < currentPhase;
-
-              return (
-                <motion.div
-                  key={phase.id}
-                  className="relative flex flex-col items-center"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 }}
-                >
-                  <motion.button
-                    onClick={() => setCurrentPhase(idx)}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className={`relative w-20 h-20 md:w-24 md:h-24 rounded-full border-4 flex items-center justify-center transition-all ${
-                      isActive
-                        ? 'border-yellow-400 bg-gradient-to-br from-yellow-400 to-red-500 shadow-2xl shadow-yellow-500/50'
-                        : isCompleted
-                        ? 'border-green-400 bg-gradient-to-br from-green-400 to-green-600'
-                        : 'border-white/30 bg-white/10 backdrop-blur-md hover:border-white/50'
-                    }`}
-                    animate={isActive ? { scale: [1, 1.1, 1] } : {}}
-                    transition={{ duration: 1, repeat: Infinity }}
-                  >
-                    <Icon
-                      className={`w-8 h-8 md:w-10 md:h-10 ${
-                        isActive
-                          ? 'text-white'
-                          : isCompleted
-                          ? 'text-white'
-                          : 'text-white/70'
-                      }`}
-                    />
-                    {isCompleted && (
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        className="absolute -top-1 -right-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center"
-                      >
-                        <span className="text-white text-xs">✓</span>
-                      </motion.div>
-                    )}
-                  </motion.button>
-
-                  <motion.div
-                    className="mt-6 text-center"
-                    animate={isActive ? { scale: 1.05 } : { scale: 1 }}
-                  >
-                    <div
-                      className={`text-base md:text-lg font-bold ${
-                        isActive
-                          ? 'text-yellow-400'
-                          : isCompleted
-                          ? 'text-green-400'
-                          : 'text-white/70'
-                      }`}
-                    >
-                      {phase.title}
-                    </div>
-                    <div className="text-sm text-gray-400 mt-2">{phase.date}</div>
-                  </motion.div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
+            className="mt-6 text-center"
+            animate={isActive ? { scale: 1.05 } : { scale: 1 }}
+          >
+            <div
+              className={`text-base md:text-lg font-bold ${
+                isActive
+                  ? "text-yellow-500"
+                  : isCompleted
+                  ? "text-green-500"
+                  : "text-gray-800 dark:text-white/70"
+              }`}
+            >
+              {phase.title}
+            </div>
+            <div className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+              {phase.date}
+            </div>
+          </motion.div>
+        </motion.div>
+      );
+    })}
+  </div>
+</div>
 
         {/* Current Phase Details */}
         <AnimatePresence mode="wait">
