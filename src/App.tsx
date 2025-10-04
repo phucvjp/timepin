@@ -12,7 +12,6 @@ import ProductDetail from "./pages/ProductDetail";
 import CachMangThangTam from "./pages/CachMangThangTam";
 import TuyenNgonDocLap from "./pages/TuyenNgonDocLap";
 import ChienDichDienBienPhu from "./pages/ChienDichDienBienPhu";
-import ExhibitionScreen from "./pages/Exhibition";
 import NotFound from "./pages/NotFound";
 import "./App.css";
 import FloatingNavigation from "./components/FloatingNavigation";
@@ -54,7 +53,7 @@ function App() {
               />
             </Route>
 
-            <Route path="/exhibition" element={<ExhibitionScreen />} />
+            {/* <Route path="/exhibition" element={<ExhibitionScreen />} /> */}
             {/* Catch-all route for 404 */}
             <Route
               element={

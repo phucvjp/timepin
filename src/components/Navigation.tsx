@@ -140,7 +140,7 @@ const Navigation: React.FC = () => {
         <div
           className="nav-container"
           style={{
-            maxWidth: 1200,
+            maxWidth: 1500,
             margin: "0 auto",
             padding: "0.75rem 1rem",
             display: "flex",
@@ -167,30 +167,6 @@ const Navigation: React.FC = () => {
             className="nav-content"
             style={{ display: "flex", alignItems: "center", gap: "1rem" }}
           >
-            <div className="nav-links" style={{ display: "flex", gap: "1rem" }}>
-              <Link
-                to="/"
-                className="nav-link"
-                style={{ color: "#e5e7eb", textDecoration: "none" }}
-              >
-                Home
-              </Link>
-              <Link
-                to="/products"
-                className="nav-link"
-                style={{ color: "#e5e7eb", textDecoration: "none" }}
-              >
-                Products
-              </Link>
-              <Link
-                to="/exhibition"
-                className="nav-link"
-                style={{ color: "#e5e7eb", textDecoration: "none" }}
-              >
-                Exhibition
-              </Link>
-            </div>
-
             {/* Podcast mini-player with episode list */}
             <div style={{ position: "relative" }}>
               <div
@@ -458,6 +434,29 @@ const Navigation: React.FC = () => {
                   </div>
                 </div>
               )}
+            </div>
+            <div className="nav-links" style={{ display: "flex", gap: "1rem" }}>
+              <Link
+                to="/"
+                className="nav-link"
+                style={{ color: "#e5e7eb", textDecoration: "none" }}
+              >
+                Home
+              </Link>
+              <Link
+                to="/products"
+                className="nav-link"
+                style={{ color: "#e5e7eb", textDecoration: "none" }}
+              >
+                Products
+              </Link>
+              {/* <Link
+                to="/exhibition"
+                className="nav-link"
+                style={{ color: "#e5e7eb", textDecoration: "none" }}
+              >
+                Exhibition
+              </Link> */}
             </div>
 
             <div className="auth-section">
